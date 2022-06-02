@@ -11,9 +11,9 @@ telaaberta = True
 
 # Define cores padrão de saída no terminal:
 class bcolors:
-    OK = '\033[92m' #Verde
+    OK = '\033[0;32m' #Verde
     WARNING = '\033[93m' #Amarelo
-    FAIL = '\033[91m' #Vermelho
+    FAIL = '\033[1;31m' #Vermelho
     RESET = '\033[0m' #Resetar cores
 
 ##
@@ -22,12 +22,12 @@ def adicao ():
     while True:
         try:
             print('\n{}Informe o 1° valor: {}'.format(bcolors.WARNING,bcolors.RESET))
-            num1 = int(input())
-            print('\nInforme agora o 2° valor'.format(bcolors.WARNING, bcolors.RESET))
-            num2 = int(input())
-            tot = num1 + num2;
-            print('total = {}'.format(tot))
-            print(type(tot))
+            num1 = float(input())
+            print('\n{}Informe agora o 2° valor: {}'.format(bcolors.WARNING, bcolors.RESET))
+            num2 = float(input())
+            tot = round(num1 + num2, 4); # 4 casas decimais
+            print('{}total = {}{}'.format(bcolors.OK,tot,bcolors.RESET))
+            #print(type(tot))
             input()
             break
         except ValueError:
@@ -38,12 +38,14 @@ def adicao ():
 def subtracao ():
     while True:
         try:     
-            num1 = int(input('Informe o primeiro valor da operação: '))
-            num2 = int(input('Agora inform o segundo: '))
-            tot = num1 - num2
-            print(type(tot))
+            print('\n{}Informe o 1° valor: {}'.format(bcolors.WARNING,bcolors.RESET))
+            num1 = float(input())
+            print('\n{}Informe agora o 2° valor: {}'.format(bcolors.WARNING, bcolors.RESET))
+            num2 = float(input())
+            tot = round(num1 - num2, 4)
+            print('{}total = {}{}'.format(bcolors.OK,tot,bcolors.RESET))
             print('total = {}'.format(tot))
-            print(type(tot))
+            #print(type(tot))
             input()
             break
         except ValueError:
@@ -54,11 +56,14 @@ def subtracao ():
 def multiplicacao ():
     while True:
         try:
-            num1 = int(input('Informe o primeiro valor da operação: '))
-            num2 = int(input('Agora inform o segundo: '))
-            tot = num1 * num2
-            print('total = {}'.format(tot))
-            print(type(tot))
+            print('\n{}Informe o 1° valor: {}'.format(bcolors.WARNING,bcolors.RESET))
+            num1 = float(input())
+            print('\n{}Informe agora o 2° valor: {}'.format(bcolors.WARNING, bcolors.RESET))
+            num2 = float(input())
+            #num2 = float()
+            tot = round(num1 * num2,4)
+            print('{}total = {}{}'.format(bcolors.OK,tot,bcolors.RESET))
+            #print(type(tot))
             input()
             break
         except ValueError:
@@ -69,12 +74,14 @@ def multiplicacao ():
 def divisao ():
     while True:
         try:
-            num1 = float(input('Informe o primeiro valor da operação: '))
-            num2= float(input('Digite o segundo: '))
+            print('\n{}Informe o 1° valor: {}'.format(bcolors.WARNING,bcolors.RESET))
+            num1 = float(input())
+            print('\n{}Informe agora o 2° valor: {}'.format(bcolors.WARNING, bcolors.RESET))
+            num2 = float(input())
             #tot = num1 % num2 <-- Verifica se o numero é par ou impar
-            tot = num1 / num2
-            print('total = {}'.format(tot))
-            print(type(tot))
+            tot = round(num1 / num2,4)
+            print('{}total = {}{}'.format(bcolors.OK,tot,bcolors.RESET))
+            #print(type(tot))
             input()
             break
         except ValueError:
@@ -84,16 +91,16 @@ def divisao ():
 # Menu principal
 while telaaberta == True:
     def MenuPrincipal():
-        inpA = str('a')
-        inpS = str('s')
-        inpM = str('m')
-        inpD = str('d')
+        inpA = str('+')
+        inpS = str('-')
+        inpM = str('*')
+        inpD = str('/')
         escolha = str(input('''Qual operação deseja fazer?
-        (a) Adição +
-        (s) Subtração -
-        (m) Multiplcação *
-        (d) Divisão /
-        (q) Qualquer outra tecla para ENCERRAR
+        Adição (+)
+        Subtração (-)
+        Multiplcação (*)
+        Divisão (/)
+        ~~ Qualquer outra tecla para ENCERRAR
         '''))
         if escolha == inpA:
             adicao()
