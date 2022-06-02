@@ -100,7 +100,7 @@ while telaaberta == True:
         Subtração (-)
         Multiplcação (*)
         Divisão (/)
-        ~~ Qualquer outra tecla para ENCERRAR
+        ~~ Qualquer outra tecla para ENCERRAR ~~
         '''))
         if escolha == inpA:
             adicao()
